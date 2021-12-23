@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'corsheaders',
 
     'base.apps.BaseConfig',
+    'record.apps.RecordConfig',
 ]
 
 REST_FRAMEWORK = {
