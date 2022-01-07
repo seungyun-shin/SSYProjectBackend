@@ -10,3 +10,5 @@ db.sqlite3-journal
 media
 wsgi.py
 static
+config/
+security.json
