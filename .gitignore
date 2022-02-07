@@ -12,3 +12,6 @@ wsgi.py
 static
 config/
 security.json
+log
+staticfiles
+images

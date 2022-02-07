@@ -1,0 +1,29 @@
+# docker-compose.yml
+version: "2"
+services:
+  nginx:
+    container_name: ssyproject_nginx
+    build: ./nginx
+    image: nginx:latest
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /home/ubuntu/workspace/SSYProjectBackend:/workspace
+      - ./log:/var/log/nginx
+    depends_on:
+      - django
+
+  django:
+    container_name: ssyproject_backend
+    build: ./django
+    image: stevenshin/ssyprojectbackend-ubuntu-python3.6-django-uwsgi-s3:latest
+    restart: always
+    # ports:
+    #   - "8888:8003"
+    volumes:
+      - ./log:/var/log/uwsgi
+      - /home/ubuntu/workspace/SSYProjectBackend:/workspace
+      # - /home/ssy/ssyWork/tf-pose-estimation-DK/specialapiproject:/workspace
+    tty: true

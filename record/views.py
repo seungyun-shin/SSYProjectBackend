@@ -15,7 +15,7 @@ def getRoute(request):
     
 @api_view(['GET'])
 def getRecords(request):
-    records = Record.objects.all()
+    records = Record.objects.all().order_by('-createdAt')
     serializer = RecordSerializer(records, many=True)
     return Response(serializer.data)
 
